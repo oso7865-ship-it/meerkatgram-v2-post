@@ -1,4 +1,4 @@
-package com.meerkatgramv2post.domain.request;
+package com.meerkatgramv2post.domain.post.request;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.Min;
@@ -14,6 +14,6 @@ public record PostIndexRequestDTO(
 ) {
     public PostIndexRequestDTO(Long page, Long limit) {
         this.page = (page != null && page > 0) ? page : 1;
-        this.limit = (limit != null && limit > 0) ? limit : 1;
+        this.limit = (limit != null && limit > 0) ? limit : 6;
     }
 }

@@ -1,4 +1,4 @@
-package com.meerkatgramv2post.domain.entity;
+package com.meerkatgramv2post.domain.post.entity;
 
 import jakarta.persistence.*;
 import lombok.Getter;

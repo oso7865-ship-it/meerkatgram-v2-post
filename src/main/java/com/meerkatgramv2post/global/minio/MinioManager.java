@@ -5,6 +5,7 @@ package com.meerkatgramv2post.global.minio;
 import com.meerkatgramv2post.global.error.custom.FileManagedException;
 import io.minio.MinioClient;
 import io.minio.PutObjectArgs;
+import io.minio.RemoveObjectArgs;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
@@ -86,4 +87,20 @@ public class MinioManager {
         );
     }
 
+    public void removeObject(String uri) {
+        // URL에서 pure object Key만 추출
+        String prefix = minioConfig.minioEndpoint() + "/" + minioConfig.minioBucket();
+        String objectKey = uri.substring(prefix.length());
+        
+        try {
+            minioClient.removeObject(
+                RemoveObjectArgs.builder()
+                    .bucket(minioConfig.minioBucket())
+                    .object(objectKey)
+                    .build()
+            );
+        } catch (Exception e) {
+            throw new FileManagedException("파일 삭제 처리: MinIO에서 삭제 실패");
+        }
+    }
 }

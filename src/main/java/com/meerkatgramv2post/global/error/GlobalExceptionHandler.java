@@ -49,22 +49,22 @@ public class GlobalExceptionHandler {
         return this.generateErrorResponse(CustomResponseCode.UNAUTHORIZED_ERROR);
     }
 
-    @ExceptionHandler(InvalidTokenException.class)
-    public ResponseEntity<GlobalResponse<Void>> invalidTokenHandle(InvalidTokenException e) {
-        log.debug(CustomResponseCode.INVALID_TOKEN_ERROR.name(), e);
-        return this.generateErrorResponse(CustomResponseCode.INVALID_TOKEN_ERROR);
-    }
-
-    @ExceptionHandler(DeletedRecordException.class)
-    public ResponseEntity<GlobalResponse<Void>> deletedRecordHandle(DeletedRecordException e) {
-        log.debug(CustomResponseCode.NOT_FOUND_DATA_ERROR.name(), e);
-        return this.generateErrorResponse(CustomResponseCode.NOT_FOUND_DATA_ERROR);
+    @ExceptionHandler(ResourceNotFoundException.class)
+    public ResponseEntity<GlobalResponse<Void>> ResourceNotFoundHandle(ResourceNotFoundException e) {
+        log.debug(CustomResponseCode.RESOURCE_NOT_FOUND_ERROR.name(), e);
+        return this.generateErrorResponse(CustomResponseCode.RESOURCE_NOT_FOUND_ERROR);
     }
 
     @ExceptionHandler(DuplicatedRecordException.class)
     public ResponseEntity<GlobalResponse<Void>> duplicatedRecordHandle(DuplicatedRecordException e) {
         log.debug(CustomResponseCode.DUPLICATED_DATA_ERROR.name(), e);
         return this.generateErrorResponse(CustomResponseCode.DUPLICATED_DATA_ERROR);
+    }
+
+    @ExceptionHandler(ResourceAuthMismatchException.class)
+    public ResponseEntity<GlobalResponse<Void>> ResourceAuthMismatchHandle(ResourceAuthMismatchException e) {
+        log.debug(CustomResponseCode.RESOURCE_AUTHOR_MISMATCH_ERROR.name(), e);
+        return this.generateErrorResponse(CustomResponseCode.RESOURCE_AUTHOR_MISMATCH_ERROR);
     }
 
     @ExceptionHandler(MethodArgumentTypeMismatchException.class)
@@ -93,6 +93,7 @@ public class GlobalExceptionHandler {
         log.debug(CustomResponseCode.FILE_MANAGED_ERROR.name(), e);
         return this.generateErrorResponse(CustomResponseCode.FILE_MANAGED_ERROR);
     }
+
 
     @ExceptionHandler(NoResourceFoundException.class)
     public ResponseEntity<GlobalResponse<Void>> notFoundHandle(NoResourceFoundException e) {

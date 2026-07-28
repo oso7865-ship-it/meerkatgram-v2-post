@@ -1,6 +1,6 @@
-package com.meerkatgramv2post.domain.response;
+package com.meerkatgramv2post.domain.post.response;
 
-import com.meerkatgramv2post.domain.entity.Post;
+import com.meerkatgramv2post.domain.post.entity.Post;
 
 import java.util.List;
 

@@ -1,13 +1,13 @@
-package com.meerkatgramv2post.domain.repository;
+package com.meerkatgramv2post.domain.post.repository;
 
-import com.meerkatgramv2post.domain.entity.Post;
+import com.meerkatgramv2post.domain.post.entity.Post;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-import static com.meerkatgramv2post.domain.entity.QPost.post;
+import static com.meerkatgramv2post.domain.post.entity.QPost.post;
 
 @Repository
 @RequiredArgsConstructor
