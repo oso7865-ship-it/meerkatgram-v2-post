@@ -34,7 +34,7 @@ public class PostController {
     }
 
     @PreAuthorize("isAuthenticated()")
-    @PostMapping()
+    @PostMapping("/create")
     public ResponseEntity<GlobalResponse<PostResponseDTO>> postCreate(
         @Valid @RequestBody PostCreateRequestDTO requestDTO,
         Authentication authentication
